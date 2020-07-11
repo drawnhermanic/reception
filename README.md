@@ -17,7 +17,6 @@ Admin users can log in and see a record of all visitors
 
 ## Future development
 
-* Store contact number against app user. Allow user to optionally overwrite
 * Filter visitors on admin page based on date. 
 * Use refresh token
 * Integrate with Azure AD to find Barnardos employees
@@ -33,6 +32,10 @@ If your IDE doesn't automatically install your .NET NuGet Dependencies, you can 
 
     $ dotnet restore
 
+Add the dev cert for https
+
+    $ dotnet dev-certs https --trust
+    
 ## Dev Workflow
 
 Start a [watched .NET Core build](https://docs.servicestack.net/templates-websites#watched-net-core-builds) in the background from the command-line with:

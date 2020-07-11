@@ -8,7 +8,8 @@ init:
 before_build:
   - cmd: dotnet --version
   - cmd: dotnet restore Reception.sln
+  - PowerShell .\Scripts\InstallSelfSignedCert.ps1
 build_script:
-  - cmd: dotnet build Reception.sln
+  - cmd: dotnet build Reception.sln --configuration Release
 test_script:
   - cmd: dotnet test Reception.Tests/Reception.Tests.csproj
