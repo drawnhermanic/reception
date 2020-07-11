@@ -12,7 +12,6 @@ namespace Reception.Tests.Hosted
 {
     public class CreateVisitTests : AppHostBase
     {
-        protected string UserId;
         protected IServiceClient Client { get; set; }
 
         [SetUp]

@@ -9,7 +9,7 @@ namespace Reception.Tests.Hosted
 {
     public abstract class AppHostBase
     {
-        public const string ListeningOn = "https://localhost:2337/";
+        public const string ListeningOn = "http://localhost:2337/";
         protected ServiceStackHost AppHost;
 
         protected virtual RegisterUserTestData.RegisterUser DefaultRegisterUser => new RegisterUserTestData().Default;
