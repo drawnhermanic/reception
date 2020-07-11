@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DebugType>portable</DebugType>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Reception.ServiceInterface\Reception.ServiceInterface.csproj" />
+    <ProjectReference Include="..\Reception.ServiceModel\Reception.ServiceModel.csproj" />
+    <ProjectReference Include="..\Reception\Reception.csproj" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+
+    <PackageReference Include="NUnit" Version="3.12.*" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.15.*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.*" />
+    <PackageReference Include="ServiceStack" Version="5.*" />
+    <PackageReference Include="ServiceStack.Kestrel" Version="5.*" />
+    <PackageReference Include="ServiceStack.OrmLite.Sqlite.Core" Version="5.9.1" />
+    <PackageReference Include="ServiceStack.Server" Version="5.9.1" />
+  </ItemGroup>
+
+</Project>
