@@ -1,3 +1,6 @@
+
+[![Build status](https://ci.appveyor.com/api/projects/status/ehs1oynofatousqq?svg=true)](https://ci.appveyor.com/project/RichardNewman/reception)
+
 ## Description
 
 A simple app to record visitors. 
