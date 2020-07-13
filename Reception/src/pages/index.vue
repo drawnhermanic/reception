@@ -31,10 +31,7 @@
 
               <div class="form-group row">
                 <div class="col">
-                  <ValidationProvider
-                    rules="required|alpha_num"
-                    v-slot="{ errors }"
-                  >
+                  <ValidationProvider rules="alpha_num" v-slot="{ errors }">
                     <input
                       class="form-control"
                       type="text"
@@ -116,11 +113,11 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import { Routes } from '../shared'
-import { CreateVisit, VisitorType } from '../shared/dtos'
-import moment from 'moment'
-import { ValidationObserver, ValidationProvider } from 'vee-validate'
+import { mapGetters, mapActions } from "vuex"
+import { Routes } from "../shared"
+import { CreateVisit } from "../shared/dtos"
+import moment from "moment"
+import { ValidationObserver, ValidationProvider } from "vee-validate"
 
 export default {
   components: {
@@ -129,18 +126,18 @@ export default {
   },
 
   data: () => ({
-    value: '',
-    name: '',
+    value: "",
+    name: "",
     visitorType: null,
     carRegistration: null,
     contactNumber: null,
-    visitTime: ''
+    visitTime: ""
   }),
 
   computed: {
-    ...mapGetters(['userSession', 'user']),
+    ...mapGetters(["userSession", "user"]),
     displayCurrentDateTime: function () {
-      return moment(this.visitTime).format('DD MMM YYYY hh:mm:ss')
+      return moment(this.visitTime).format("DD MMM YYYY hh:mm:ss")
     }
   },
 
@@ -151,7 +148,7 @@ export default {
   mounted() {},
 
   methods: {
-    ...mapActions(['createVisit', 'getUser']),
+    ...mapActions(["createVisit", "getUser"]),
     async init() {
       await this.getUser()
       this.setUserDetails()
@@ -211,8 +208,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

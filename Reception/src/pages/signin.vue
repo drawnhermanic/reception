@@ -70,22 +70,22 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { Routes, requiresAuth } from '../shared'
-import { auth } from '../shared/gateway'
-import { Authenticate } from '../shared/dtos'
+import { mapGetters } from "vuex"
+import { Routes } from "../shared"
+import { auth } from "../shared/gateway"
+import { Authenticate } from "../shared/dtos"
 
 export default {
   data: () => ({
-    userName: '',
-    password: '',
+    userName: "",
+    password: "",
     rememberMe: true,
     loading: false,
     responseStatus: null
   }),
 
   computed: {
-    ...mapGetters(['nav', 'userAttributes', 'userSession'])
+    ...mapGetters(["nav", "userAttributes", "userSession"])
   },
 
   mounted() {
@@ -102,14 +102,14 @@ export default {
 
         const response = await auth(
           new Authenticate({
-            provider: 'credentials',
+            provider: "credentials",
             userName: this.userName,
             password: this.password,
             rememberMe: this.rememberMe
           })
         )
 
-        this.$store.dispatch('signin', response)
+        this.$store.dispatch("signin", response)
 
         this.$router.push(this.$route.query.redirect || Routes.Home)
       } catch (e) {
@@ -121,7 +121,7 @@ export default {
 
     switchUser(email) {
       this.userName = email
-      this.password = 'p@55wOrd'
+      this.password = "p@55wOrd"
     }
   }
 }

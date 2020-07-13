@@ -30,19 +30,19 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import { EndVisit } from '../shared/dtos'
-import moment from 'moment'
+import { mapGetters, mapActions } from "vuex"
+import { EndVisit } from "../shared/dtos"
+import moment from "moment"
 
 export default {
   data: () => ({
-    visitTime: ''
+    visitTime: ""
   }),
 
   computed: {
-    ...mapGetters(['userSession', 'visit']),
+    ...mapGetters(["userSession", "visit"]),
     displayCurrentDateTime: function () {
-      return moment(this.visitTime).format('DD MMM YYYY hh:mm:ss')
+      return moment(this.visitTime).format("DD MMM YYYY hh:mm:ss")
     }
   },
 
@@ -53,8 +53,8 @@ export default {
   mounted() {},
 
   methods: {
-    ...mapGetters(['visit']),
-    ...mapActions(['endVisit']),
+    ...mapGetters(["visit"]),
+    ...mapActions(["endVisit"]),
     setDateTime: function () {
       setInterval(() => {
         this.visitTime = moment().toDate()
@@ -94,8 +94,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { requiresAuth } from '../shared'
+import { mapGetters } from "vuex"
+import { requiresAuth } from "../shared"
 
 export default {
   computed: {
-    ...mapGetters(['userSession'])
+    ...mapGetters(["userSession"])
   },
 
   mounted() {
@@ -38,7 +38,7 @@ export default {
     requiresAuth,
 
     async signout() {
-      await this.$store.dispatch('signout')
+      await this.$store.dispatch("signout")
       this.requiresAuth()
     }
   }

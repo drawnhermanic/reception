@@ -10,14 +10,14 @@
         <div class="form-group">
           <error-summary
             except="displayName,email,password,confirmPassword"
-            :responseStatus="responseStatus"
+            :response-status="responseStatus"
           />
         </div>
         <div class="form-group">
           <v-input
             id="displayName"
             v-model="displayName"
-            :responseStatus="responseStatus"
+            :response-status="responseStatus"
             placeholder="Display Name"
             label="Name"
             help="Your first and last name"
@@ -27,7 +27,7 @@
           <v-input
             id="email"
             v-model="email"
-            :responseStatus="responseStatus"
+            :response-status="responseStatus"
             placeholder="Email"
             label="Email"
           />
@@ -37,7 +37,7 @@
             type="password"
             id="password"
             v-model="password"
-            :responseStatus="responseStatus"
+            :response-status="responseStatus"
             placeholder="Password"
             label="Password"
           />
@@ -47,7 +47,7 @@
             type="password"
             id="confirmPassword"
             v-model="confirmPassword"
-            :responseStatus="responseStatus"
+            :response-status="responseStatus"
             placeholder="Confirm"
             label="Confirm Password"
           />
@@ -56,14 +56,14 @@
           <v-checkbox
             id="autoLogin"
             v-model="autoLogin"
-            :responseStatus="responseStatus"
+            :response-status="responseStatus"
           >
             Auto Login
           </v-checkbox>
         </div>
         <div class="form-group">
           <v-button type="submit" lg primary>Register</v-button>
-          <link-button href="/signin" navItemClass="btn">Sign In</link-button>
+          <link-button href="/signin" nav-item-class="btn">Sign In</link-button>
         </div>
       </form>
     </div>
@@ -71,26 +71,25 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { toPascalCase, splitOnFirst } from '@servicestack/client'
-import { Register } from '../shared/dtos'
-import { Routes } from '../shared'
-import { checkAuth, register } from '../shared/gateway'
+import { mapGetters } from "vuex"
+import { Register } from "../shared/dtos"
+import { Routes } from "../shared"
+import { checkAuth, register } from "../shared/gateway"
 
 export default {
   data: () => ({
-    displayName: '',
-    email: '',
-    userName: '',
-    password: '',
-    confirmPassword: '',
+    displayName: "",
+    email: "",
+    userName: "",
+    password: "",
+    confirmPassword: "",
     autoLogin: true,
     loading: false,
     responseStatus: null
   }),
 
   computed: {
-    ...mapGetters(['nav', 'userAttributes', 'userSession'])
+    ...mapGetters(["nav", "userAttributes", "userSession"])
   },
 
   methods: {
@@ -99,7 +98,7 @@ export default {
         this.loading = true
         this.responseStatus = null
 
-        const response = await register(
+        await register(
           new Register({
             displayName: this.displayName,
             email: this.email,
@@ -109,7 +108,7 @@ export default {
           })
         )
 
-        this.$store.dispatch('signin', await checkAuth())
+        this.$store.dispatch("signin", await checkAuth())
 
         this.$router.push(Routes.Home)
       } catch (e) {

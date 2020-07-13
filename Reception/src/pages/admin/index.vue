@@ -40,17 +40,17 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import { requiresRole } from '../../shared'
-import moment from 'moment'
+import { mapGetters, mapActions } from "vuex"
+import { requiresRole } from "../../shared"
+import moment from "moment"
 
 export default {
   computed: {
-    ...mapGetters(['userSession', 'visitors'])
+    ...mapGetters(["userSession", "visitors"])
   },
 
   mounted() {
-    this.requiresRole('Admin')
+    this.requiresRole("Admin")
   },
 
   created() {
@@ -58,13 +58,13 @@ export default {
   },
 
   methods: {
-    ...mapActions(['getVisitors']),
+    ...mapActions(["getVisitors"]),
     async init() {
       await this.getVisitors()
     },
     displayDate: (date) => {
       if (date) {
-        return moment(date).format('DD MMM YYYY hh:mm:ss')
+        return moment(date).format("DD MMM YYYY hh:mm:ss")
       }
     },
     requiresRole

@@ -44,7 +44,7 @@ namespace Reception
             var authRepo = appHost.Resolve<IAuthRepository>();
             authRepo.InitSchema();
 
-            CreateUser(authRepo, "reception@barnardos.org.au", "Admin User", "R3c3ption", roles:new[]{ RoleNames.Admin });
+            CreateUser(authRepo, "admin@email.com", "Admin User", "R3c3ption", roles:new[]{ RoleNames.Admin });
         }
 
         public void BeforePluginsLoaded(IAppHost appHost)

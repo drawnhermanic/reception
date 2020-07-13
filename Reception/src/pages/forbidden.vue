@@ -18,10 +18,10 @@
 <script>
 export default {
   props: {
-    message: { default: '' },
-    path: { default: '' },
-    role: { default: '' },
-    permission: { default: '' }
+    message: { default: "" },
+    path: { default: "" },
+    role: { default: "" },
+    permission: { default: "" }
   },
 
   computed: {

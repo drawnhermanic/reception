@@ -19,7 +19,7 @@ Admin users can log in and see a record of all visitors
 
 * Filter visitors on admin page based on date. 
 * Use refresh token
-* Integrate with Azure AD to find Barnardos employees
+* Integrate with AD to find employees
 * Add notifications so host is notified that a visitor has arrived 
 
 ## Install Dependencies
