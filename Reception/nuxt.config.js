@@ -1,69 +1,69 @@
 module.exports = {
-  mode: 'spa',
-  srcDir: 'src',
+  mode: "spa",
+  srcDir: "src",
   generate: {
-    dir: 'wwwroot',    
+    dir: "wwwroot",
     routes: [
       // Generate static pages for static file servers handling dynamic routes
     ]
   },
-  plugins: [{ src: '~/plugins/nuxt-client-init.js', ssr: false }, { src: '~/plugins/servicestack-vue.js', ssr: false }, { src: '~/plugins/vee-validate.js', ssr: false }],
-  modules: ['@nuxtjs/proxy'],
+  plugins: [
+    { src: "~/plugins/nuxt-client-init.js", ssr: false },
+    { src: "~/plugins/servicestack-vue.js", ssr: false },
+    { src: "~/plugins/vee-validate.js", ssr: false }
+  ],
+  modules: ["@nuxtjs/proxy"],
   proxy: {
-    '/json': {
-      target: 'https://localhost:44311/',
+    "/json": {
+      target: "https://localhost:44311/",
       secure: false
     },
-    '/auth': {
-      target: 'https://localhost:44311/',
+    "/auth": {
+      target: "https://localhost:44311/",
       secure: false
     },
-    '/metadata': {
-      target: 'https://localhost:44311/',
+    "/metadata": {
+      target: "https://localhost:44311/",
       secure: false
     },
-    '/css': {
-      target: 'https://localhost:44311/',
+    "/css": {
+      target: "https://localhost:44311/",
       secure: false
-    },
+    }
   },
-  css: ['bootstrap/dist/css/bootstrap.css', '~/assets/css/default.css'],
+  css: ["bootstrap/dist/css/bootstrap.css", "~/assets/css/default.css"],
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
-    title: 'Reception',
+    title: "Reception",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "Nuxt.js project" }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
   /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
+   ** Customize the progress bar color
+   */
+  loading: { color: "#3B8070" },
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** Run ESLint on save
-    */
+     ** Run ESLint on save
+     */
     // Add exception
-    transpile: [
-      "vee-validate/dist/rules"
-    ], 
-    extend (config, { isDev, isClient }) {
+    transpile: ["vee-validate/dist/rules"],
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
-        config.devtool = '#source-map';
+        config.devtool = "#source-map"
         config.module.rules.push({
-          enforce: 'pre',
+          enforce: "pre",
           test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
+          loader: "eslint-loader",
           exclude: /(node_modules)/
         })
       }
